@@ -27,8 +27,48 @@ class Calc:
     
     def amount(self,t):
         return round(self.principal*((1+(self.rate/self.nPeriods))**(self.nPeriods*t)),2)
+    
+    def setT(self, t, unit):
+        if unit=='days':
+            t2=t/365
+            #self.amount(t2)
+            return t2
+        elif unit=='months':
+            t2=t/12
+            #self.amount(t2)
+            return t2
+        elif unit=='weeks':
+            t2=t/52
+            #self.amount(t2)
+            return t2
+    
 
-    def setYearAmount(self,t):
+
+
+    
+        
+
+
+
+a = Calc(P=1000,r=4,n=2)
+assert a.interest(3) == 126.16
+assert a.amount(5) == 1218.99
+
+b = Calc(P=5000,r=5.25,n=12)
+assert b.interest(10) == 3442.62
+
+c = Calc(P=5000,r=5.25,n=12)
+assert c.amount(c.setT(10,'days'))==5007.18
+assert c.interest(c.setT(10,'months'))==223.11
+#assert c.setTamount(10, 'days') == 5007.18
+
+
+
+"""return round(self.principal*((1+(self.rate/self.nPeriods))**(self.nPeriods*t)),2)"""
+
+
+
+"""def setYearAmount(self,t):
         if t!=str(t):
             self.amount(t)
         else:
@@ -53,22 +93,4 @@ class Calc:
             self.interest(t2)
         elif 'weeks' in t:
             t2=t1[0]/52
-            self.interest(t2)
-        
-
-
-
-a = Calc(P=1000,r=4,n=2)
-assert a.interest(3) == 126.16
-assert a.amount(5) == 1218.99
-
-b = Calc(P=5000,r=5.25,n=12)
-assert b.interest(10) == 3442.62
-
-c = Calc(P=5000,r=5.25,n=12)
-assert c.setYearAmount(10) == 5007.18
-
-
-"""return round(self.principal*((1+(self.rate/self.nPeriods))**(self.nPeriods*t)),2)"""
-
-print(c.setYearInterest('10 days'))
+            self.interest(t2)"""
