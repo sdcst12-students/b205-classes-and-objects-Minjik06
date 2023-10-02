@@ -60,7 +60,7 @@ assert b.interest(10) == 3442.62
 c = Calc(P=5000,r=5.25,n=12)
 assert c.amount(c.setT(10,'days'))==5007.18
 assert c.interest(c.setT(10,'months'))==223.11
-#assert c.setTamount(10, 'days') == 5007.18
+
 
 
 
